@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { addBooking } from "../../redux/booking/actions";
 
 const Form = () => {
@@ -24,7 +25,12 @@ const Form = () => {
     };
 
     dispatch(addBooking(data));
+
+    if (store.length > 2) {
+      return toast("You can't book more than 4 tickets", { type: "error" });
+    }
   };
+
   return (
     <div className="mt-[160px] mx-4 md:mt-[160px] relative">
       <div className="bg-white rounded-md max-w-6xl w-full mx-auto">

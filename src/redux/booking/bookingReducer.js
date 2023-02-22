@@ -9,7 +9,10 @@ export const bookingReducer = (state = initialState, action) => {
     case ADD_BOOKING:
       return {
         ...state,
-        bookings: [...state.bookings, action.payload],
+        bookings:
+          state.bookings.length < 3
+            ? [...state.bookings, action.payload]
+            : state.bookings,
       };
     case DELETE_BOOKING:
       return {

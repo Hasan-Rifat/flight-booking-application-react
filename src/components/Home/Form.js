@@ -6,22 +6,21 @@ const Form = () => {
   const store = useSelector((state) => state.bookings);
   const dispatch = useDispatch();
 
-  console.log(store.length);
   const handlerSubmit = (e) => {
     e.preventDefault();
-    const from = e.target.from.value;
-    const to = e.target.to.value;
-    const date = e.target.date.value;
+    const destinationFrom = e.target.from.value;
+    const destinationTo = e.target.to.value;
+    const journeyDate = e.target.date.value;
     const guests = e.target.guests.value;
-    const ticketClass = e.target.ticketClass.value;
+    const Class = e.target.ticketClass.value;
 
     const data = {
       id: store.length,
-      from,
-      to,
-      date,
+      destinationFrom,
+      destinationTo,
+      journeyDate,
       guests,
-      ticketClass,
+      Class,
     };
 
     dispatch(addBooking(data));

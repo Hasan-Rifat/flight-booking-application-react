@@ -9,7 +9,7 @@ export const bookingReducer = (state = initialState, action) => {
     case ADD_BOOKING:
       return {
         ...state,
-        bookings: state.bookings.concat(action.payload),
+        bookings: [...state.bookings, action.payload],
       };
     case DELETE_BOOKING:
       return {
